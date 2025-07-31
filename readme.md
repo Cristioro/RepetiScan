@@ -20,6 +20,18 @@
 - Soporte para clic derecho, selección múltiple, y scroll horizontal
 - Soporte para nombres de archivos y metadatos ID3 (`title`, `artist`)
 
+### Compilar
+1. Clona este repositorio en tu máquina local:
+```bash
+git clone https://github.com/Cristioro/RepetiScan
+cd RepetiScan
+```
+2. Instala las dependencias requeridas:
+```bash
+pip install -r requirements.txt
+```
+3. Ejecuta `build.bat` para compilar
+
 ---
 
 ## 🇬🇧 Description (English)
@@ -40,6 +52,18 @@
 - Right-click support, multi-selection, and horizontal scrolling
 - Supports file names and ID3 tags (`title`, `artist`)
 
+### Compile
+1. Clone this repository to your local machine:
+```bash
+git clone https://github.com/Cristioro/RepetiScan
+cd RepetiScan
+```
+2. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+3. Run `build.bat` to compile
+
 ---
 
 ## 💻 Requisitos / Requirements
@@ -47,6 +71,4 @@
 - Python 3.10 o superior
 - Librerías: `tkinter`, `mutagen`, `difflib`, `send2trash`, `csv`, `subprocess`, etc.
 
-Instalar dependencias:
-```bash
-pip install mutagen send2trash
+

@@ -10,6 +10,7 @@ import subprocess
 from send2trash import send2trash
 from pathlib import Path
 import json
+import sys
 
 BLACKLIST_FILE = "blacklist.json"
 
@@ -113,7 +114,14 @@ class SimilarityApp:
         self.build_ui()
 
     def load_translations(self):
-        with open("lang.json", "r", encoding="utf-8") as f:
+        if getattr(sys, 'frozen', False):  # Si está corriendo como .exe
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(__file__)
+
+        lang_path = os.path.join(base_path, "lang.json")
+
+        with open(lang_path, "r", encoding="utf-8") as f:
             return json.load(f)
         
     def t(self, key):

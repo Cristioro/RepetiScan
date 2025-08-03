@@ -39,7 +39,7 @@ if exist "%OUTPUT%" (
 )
 
 echo 🔧 Compilando %SCRIPT% a .exe...
-pyinstaller --name "%EXENAME%" --onefile --windowed --icon="%ICON%" "%SCRIPT%"
+pyinstaller --name "%EXENAME%" --onefile --windowed --icon="%ICON%" --add-data "lang.json;." "%SCRIPT%"
 
 echo ✅ Compilación completada. Ejecutable generado en: "%OUTPUT%"
 pause

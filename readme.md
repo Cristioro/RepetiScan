@@ -12,6 +12,7 @@
   - Porcentaje de coincidencia de título
   - Coincidencia de palabras clave
 - Excluir canciones de un artista específico
+- Lista negra de Palabras
 - Agrupar canciones similares en una sola fila
 - Reproducir canciones directamente desde la app
 - Eliminar canciones a la papelera (¡no se borran permanentemente!)
@@ -44,6 +45,7 @@ pip install -r requirements.txt
   - Title similarity by percentage
   - Keyword-based match
 - Exclude songs by a specific artist
+- Blacklist Words
 - Group similar songs in a single row
 - Play songs with your default media player
 - Delete songs (sent to recycle bin, not permanently erased!)

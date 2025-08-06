@@ -20,6 +20,7 @@
 - Interfaz gráfica (GUI) con `Tkinter`
 - Soporte para clic derecho, selección múltiple, y scroll horizontal
 - Soporte para nombres de archivos y metadatos ID3 (`title`, `artist`)
+- soporte para varios idiomas (español, ingles)
 
 ### Compilar
 1. Clona este repositorio en tu máquina local:
@@ -52,6 +53,7 @@ pip install -r requirements.txt
 - User interface (GUI) using `Tkinter`
 - Right-click support, multi-selection, and horizontal scrolling
 - Supports file names and ID3 tags (`title`, `artist`)
+- multilanguage support (spanish, english)
 
 ### Compile
 1. Clone this repository to your local machine:

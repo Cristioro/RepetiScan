@@ -32,7 +32,6 @@ cd RepetiScan
 pip install -r requirements.txt
 ```
 3. Ejecuta `build.bat` para compilar
-
 ---
 
 ## 🇬🇧 Description (English)
@@ -71,6 +70,6 @@ pip install -r requirements.txt
 ## 💻 Requisitos / Requirements
 
 - Python 3.10 o superior
-- Librerías: `tkinter`, `mutagen`, `difflib`, `send2trash`, `csv`, `subprocess`, etc.
+- Librerías: `tkinter`, `Ctkinter`,`CTkMessagebox`, `mutagen`, `difflib`, `send2trash`, `csv`, `subprocess`, etc.
 
 

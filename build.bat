@@ -1,45 +1,48 @@
 @echo off
 setlocal
 
-set SCRIPT=repetiscan.py
-set EXENAME=RepetiScan Music
-set ICON=icono.ico
-set DISTFOLDER=dist
-set OUTPUT=%DISTFOLDER%\%EXENAME%.exe
+echo This script will delete the dist and build folders and the RepetiScan Music.spec file if they exist.
+set /p CONFIRM="Do you want to continue? (y/n): "
+if /I not "%CONFIRM%"=="y" (
+    echo Operation canceled.
+    exit /b
+)
 
-echo 🛠️ Compilador de RepetiScan Music
+REM Remove previous folders and file if they exist
+if exist dist (
+    rmdir /s /q dist
+    echo Folder 'dist' deleted.
+)
+if exist build (
+    rmdir /s /q build
+    echo Folder 'build' deleted.
+)
+if exist "RepetiScan Music.spec" (
+    del "RepetiScan Music.spec"
+    echo File 'RepetiScan Music.spec' deleted.
+)
 
-REM Verificar existencia del script
-if not exist "%SCRIPT%" (
-    echo ❌ No se encontró "%SCRIPT%"
+REM Ejecutar PyInstaller
+if not exist "assets\icon.ico" (
+    echo 'assets\icon.ico' was not found. Make sure the file exists.
+    pause
+    exit /b
+)
+if not exist main.py (
+    echo 'main.py' was not found. Make sure the file exists.
+    pause
+    exit /b
+)
+if not exist lang.json (
+    echo 'lang.json' was not found. Make sure the file exists.
     pause
     exit /b
 )
 
-REM Verificar existencia del icono
-if not exist "%ICON%" (
-    echo ❌ No se encontró "%ICON%"
-    pause
-    exit /b
-)
 
-REM Verificar si ya existe compilación anterior
-if exist "%OUTPUT%" (
-    echo ⚠️ Ya existe una compilación previa: "%OUTPUT%"
-    choice /M "¿Deseas eliminarla antes de continuar?"
-    if errorlevel 2 (
-        echo ❌ Cancelado por el usuario.
-        pause
-        exit /b
-    )
-    echo 🔥 Borrando compilación anterior...
-    rmdir /S /Q build
-    rmdir /S /Q dist
-    del /Q "%EXENAME%.spec"
-)
+echo Compiling repetiscan to executable...
+pyinstaller --noconfirm --onefile --windowed --add-data "lang.json;." --icon "assets/icon.ico" --name "RepetiScan Music" main.py
 
-echo 🔧 Compilando %SCRIPT% a .exe...
-pyinstaller --name "%EXENAME%" --onefile --windowed --icon="%ICON%" --add-data "lang.json;." "%SCRIPT%"
-
-echo ✅ Compilación completada. Ejecutable generado en: "%OUTPUT%"
+echo.
+echo Compilation finished.
 pause
